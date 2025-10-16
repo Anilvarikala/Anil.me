@@ -224,6 +224,8 @@ if (contactForm) {
     } catch (error) {
       console.error("Error sending form:", error);
       formMessage.textContent = "Sent Successfully!!!";
+      contactForm.reset();
+
     }
   });
 }
