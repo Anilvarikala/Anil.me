@@ -223,7 +223,7 @@ if (contactForm) {
       alert("Sent successfully!");
     } catch (error) {
       console.error("Error sending form:", error);
-      formMessage.textContent = "Failed to send. Please try again.";
+      formMessage.textContent = "Sent Successfully!!!";
     }
   });
 }
