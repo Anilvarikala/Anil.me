@@ -400,12 +400,12 @@ function loadDynamicContent() {
       )
       .join("");
   if (projectFiltersContainer) {
-    const categories = ["all", ...new Set(projects.map((p) => p.category))];
+    const categories = ["All", ...new Set(projects.map((p) => p.category))];
     projectFiltersContainer.innerHTML = categories
       .map(
         (cat) =>
           `<button class="project__filter-btn ${
-            cat === "all" ? "active" : ""
+            cat === "All" ? "active" : ""
           }" data-filter="${cat}">${cat}</button>`
       )
       .join("");
