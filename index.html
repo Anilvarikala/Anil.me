@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,3 +20,116 @@
     
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
+
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#home" class="nav__logo">
+                <span>Hey there 👋</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#journey" class="nav__link">Journey</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    <li class="nav__item--button"><a href="assets/Anil_Varikala_Resume.pdf" class="button" download>Resume</a></li>
+                </ul>
+                <button class="nav__close" id="nav-close" aria-label="Close menu"><i class='bx bx-x'></i></button>
+            </div>
+            
+            <div class="nav__buttons">
+                <button class="theme-toggle" id="theme-button" aria-label="Toggle theme"><i class='bx bx-sun'></i><i class='bx bx-moon'></i></button>
+                <a href="./Anil_offcampus_Resume.pdf" class="button button--desktop" download>Resume</a>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Open menu"><i class='bx bx-menu'></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="home section" id="home">
+            <canvas id="particle-canvas"></canvas>
+            <div class="home__container container grid">
+                <div class="home__content">
+                    <div class="home__logo">
+                        <img src="./about (2).png" alt="Anil Varikala Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <h1 class="home__title">Anil Varikala</h1>
+                    <h2 class="home__subtitle" id="typing-subtitle">Full-Stack Developer</h2>
+                    <p class="home__description">Bridging innovation and impact — building technology that drives real-world change.</p>
+                    <div class="home__buttons">
+                        <a href="#projects" class="button">View My Work</a>
+                        <a href="#contact" class="button button--outline">Let's Connect</a>
+                    </div>
+                </div>
+            </div>
+            <a href="#journey" class="scroll__down" aria-label="Scroll to next section"><i class='bx bx-chevron-down'></i></a>
+        </section>
+
+        <section class="section container" id="journey">
+             <div class="section__title"><h2>The Journey</h2><p>Milestones that shaped my path</p></div>
+             <div class="journey__container"><div class="timeline"></div></div>
+        </section>
+        
+        <section class="section container" id="projects">
+            <div class="section__title"><h2>Projects</h2><p>Solutions that make a difference</p></div>
+            <div class="project__filters"></div><div class="project__grid"></div>
+        </section>
+        
+        <section class="section container" id="skills">
+            <div class="section__title"><h2>Skills & Achievements</h2><p>Tools I use to bring ideas to life</p></div>
+            <div class="stats__grid"></div><div class="skills__grid"></div>
+             <div class="achievements__title"><h3>Achievements & Certifications</h3></div>
+            <div class="achievements__grid"></div>
+        </section>
+        
+        <section class="section container" id="contact">
+            <div class="section__title"><h2>Let's Build Together</h2><p>Have a project in mind? Let's make it happen</p></div>
+            <div class="contact__grid">
+                <div class="contact__info">
+                    <h3>Get In Touch</h3>
+                    <p class="contact__description">Enthusiastic Computer Science student with a passion for creating impactful web applications. From telemedicine platforms to education portals, I build solutions that solve real-world problems.</p>
+                    <div class="contact__details-list"></div>
+                    <div class="contact__socials"></div>
+                </div>
+                <form class="contact__form" id="contact-form">
+                    <div class="form__group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="John Doe" required></div>
+                     <div class="form__group"><label for="email">Your Email</label><input type="email" id="email" name="email" placeholder="john@example.com" required></div>
+                     <div class="form__group"><label for="message">Your Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+                    <button type="submit"  class="button button--full"><i class='bx bxs-paper-plane'></i> Send Message</button>
+                    <div class="form__message" id="form-message"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__col">
+                 <a href="#home" class="nav__logo"><div class="nav__logo-icon">AV</div><span>Anil Varikala</span></a>
+                <p>Full-Stack Developer & Problem Solver</p>
+            </div>
+            <div class="footer__col">
+                <h4>Quick Links</h4>
+                 <ul><li><a href="#journey">Journey</a></li><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul>
+            </div>
+            <div class="footer__col">
+                <h4>Get In Touch</h4>
+                <p><a href="mailto:varikalaanil@gmail.com">varikalaanil@gmail.com</a></p>
+                <p><a href="tel:+917013725762">+91 7013725762</a></p>
+                <div class="footer__socials"></div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p style="text-align: center;">&copy; 2025 Anil Varikala. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <a href="#home" class="scroll-up" id="scroll-up" aria-label="Scroll to top"><i class='bx bx-up-arrow-alt'></i></a>
+    <a href="tel:+917013725762" class="floating-call-btn" id="floating-call-btn" aria-label="Call Anil Varikala"><i class='bx bxs-phone-call'></i></a>
+    
+    <script src="index.js"></script>
+</body>
+</html>
