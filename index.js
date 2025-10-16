@@ -26,7 +26,7 @@ const siteData = {
       desc: "Doing some minor Projects and problem solving",
       color: "yellow",
     },
-  
+
     {
       year: 2024,
       title: "Building websites, Designing",
@@ -39,9 +39,8 @@ const siteData = {
       desc: "Solved over 500+ across Leetcode and Building Ai agents.",
       color: "green",
     },
-    
   ],
-  projects: [
+projects: [
     {
       title: "DrThank You",
       link: "https://drthankyou2006.vercel.app/",
@@ -56,7 +55,6 @@ const siteData = {
         "Medical Bot",
         "AI Integration",
       ],
-    
     },
     {
       title: "Educonnect",
@@ -66,17 +64,15 @@ const siteData = {
       description:
         "Developed a responsive education portal with task dashboards and AI-powered doubt resolution for MPC and BiPC streams.",
       tech: ["React.js", "Firebase", "Bootstrap", "AI Integration"],
-    
     },
     {
       title: "Agent Chatgpt",
       link: "#",
-      category: "Ai agents",
+      category: "ai-agents",
       tagline: "Integrating cloud services under one line.",
       description:
         "Developed a smart productivity platform integrating AI-driven task management, workflow automation, and real-time analytics to streamline personal and professional efficiency.",
       tech: ["N8N", "Reactjs", "Pinecone", "MongoDb", "Nodejs", "Ai agents"],
-     
     },
     {
       title: "Edtech Platform",
@@ -86,7 +82,6 @@ const siteData = {
       description:
         "Designed a complete interface for an e-learning platform with interactive wireframes, quizzes, and AI support.",
       tech: ["Figma", "UI/UX Design", "Prototyping"],
-   
     },
     {
       title: "MSV Pickles",
@@ -96,7 +91,6 @@ const siteData = {
       description:
         "Crafted an intuitive UI for a pickle store with seamless shopping experience. Built powerful backend with Node.js, Express, and MongoDB.",
       tech: ["Figma", "Node.js", "Express.js", "MongoDB"],
-   
     },
   ],
   stats: [
@@ -225,7 +219,6 @@ if (contactForm) {
       console.error("Error sending form:", error);
       formMessage.textContent = "Sent Successfully!!!";
       contactForm.reset();
-
     }
   });
 }
@@ -247,8 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Contact form
   setupContactForm();
 });
-
-
 
 // --- CORE FUNCTIONS ---
 
@@ -402,12 +393,12 @@ function loadDynamicContent() {
       )
       .join("");
   if (projectFiltersContainer) {
-    const categories = ["All", ...new Set(projects.map((p) => p.category))];
+    const categories = ["all", ...new Set(projects.map((p) => p.category))];
     projectFiltersContainer.innerHTML = categories
       .map(
         (cat) =>
           `<button class="project__filter-btn ${
-            cat === "All" ? "active" : ""
+            cat === "all" ? "active" : ""
           }" data-filter="${cat}">${cat}</button>`
       )
       .join("");
@@ -500,22 +491,61 @@ function loadDynamicContent() {
   if (footerSocials) footerSocials.innerHTML = socialLinksHtml;
 }
 
+// function initializeProjectFiltering() {
+//   const filterBtns = document.querySelectorAll(".project__filter-btn");
+//   const projectCardLinks = document.querySelectorAll(".project-card-link");
+//   if (!filterBtns.length) return;
+//   filterBtns.forEach((btn) => {
+//     btn.addEventListener("click", (e) => {
+//       e.preventDefault();
+//       filterBtns.forEach((b) => b.classList.remove("active"));
+//       btn.classList.add("active");
+//       const filter = btn.dataset.filter;
+//       projectCardLinks.forEach((link) => {
+//         const card = link.querySelector(".project__card");
+//         link.style.display =
+//           filter === "all" || card.dataset.category === filter
+//             ? "block"
+//             : "none";
+//       });
+//     });
+//   });
+// }
 function initializeProjectFiltering() {
   const filterBtns = document.querySelectorAll(".project__filter-btn");
   const projectCardLinks = document.querySelectorAll(".project-card-link");
-  if (!filterBtns.length) return;
+  if (!filterBtns.length || !projectCardLinks.length) return;
+
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
+
+      // Set active button
       filterBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      const filter = btn.dataset.filter;
+
+      const filter = btn.dataset.filter.toLowerCase().trim();
+
       projectCardLinks.forEach((link) => {
         const card = link.querySelector(".project__card");
-        link.style.display =
-          filter === "all" || card.dataset.category === filter
-            ? "block"
-            : "none";
+        const cardCategory = card.dataset.category.toLowerCase().trim();
+
+        // Check if the card should be visible
+        const shouldShow = (filter === "all" || cardCategory === filter);
+
+        // Reset animation state before hiding
+        card.classList.remove("visible");
+
+        if (shouldShow) {
+          link.style.display = "block";
+          // Use a tiny timeout to allow the browser to apply the 'display: block'
+          // before adding the animation class. This ensures the animation re-triggers.
+          setTimeout(() => {
+            card.classList.add("visible");
+          }, 10);
+        } else {
+          link.style.display = "none";
+        }
       });
     });
   });

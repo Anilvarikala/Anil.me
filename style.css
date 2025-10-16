@@ -304,7 +304,7 @@ body.light-mode .theme-toggle .bx-sun {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: -1; /* <-- This is the problem */
 }
 .home__container {
   position: relative;
@@ -1006,4 +1006,17 @@ body.light-mode .theme-toggle .bx-sun {
   #contact{
     margin-top: 60px;
   }
+}
+
+
+/* Add this new rule */
+.tag-ai-agents {
+  background-color: var(--accent-pink);
+}
+
+.tag-design {
+  background-color: var(--accent-pink);
+}
+.tag-e-commerce {
+  background-color: var(--accent-green);
 }
